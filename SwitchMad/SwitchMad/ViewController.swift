@@ -25,14 +25,23 @@ class ViewController: UIViewController {
     let switchStackView = UIStackView()
     
     
+    let info = ["Information about Kuwait!",
+                "Kuwait is a country in Western Asia.",
+                "In 1521, kuwait was a defensive settlement for the Portuguese.",
+                "The bay of Kuwait was colonized by the ancient Greeks under Alexander the Great.",
+                "Most of present-day Kuwait is still archaeologically unexplored."
+                ]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         Instructions.text = " Turn on all  switches"
         Instructions.sizeToFit()
-        congrats.text = "Congratulations!"
+        congrats.text = info[0]
         congrats.sizeToFit()
-        congrats.isHidden = true
+        congrats.numberOfLines = 0
+       // congrats.isHidden = true
         
        
         style()
@@ -42,6 +51,8 @@ class ViewController: UIViewController {
     func style(){
         headerStackView.translatesAutoresizingMaskIntoConstraints = false
         switchStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        congrats.translatesAutoresizingMaskIntoConstraints = false
         
         headerStackView.axis = .vertical
         switchStackView.axis = .vertical
@@ -67,6 +78,12 @@ class ViewController: UIViewController {
 
     
         NSLayoutConstraint.activate([
+            
+            congrats.leadingAnchor.constraint(equalTo: headerStackView.leadingAnchor, constant: 2),
+            congrats.trailingAnchor.constraint(equalTo: headerStackView.trailingAnchor, constant: 2),
+            congrats.bottomAnchor.constraint(equalTo: headerStackView.bottomAnchor),
+            congrats.centerXAnchor.constraint(equalTo: headerStackView.centerXAnchor),
+            
             headerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             headerStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 2),
@@ -78,8 +95,6 @@ class ViewController: UIViewController {
             switch4.topAnchor.constraint(equalTo: switch3.bottomAnchor, constant: 2),
             switch5.topAnchor.constraint(equalTo: switch4.bottomAnchor, constant: 2),
 
-            
-         
         ])
         
     }
@@ -88,30 +103,33 @@ class ViewController: UIViewController {
     @IBAction func didSwitch1(_ sender: UISwitch) {
         if switch2.isOn == true{
             switch1.isOn = sender.isOn
-            
+            congrats.text = info[2]
         }else {
             switch1.reset()
             switch2.reset()
             switch3.reset()
             switch4.reset()
             switch5.reset()
+            congrats.text = info[0]
         }
     }
     
     @IBAction func didSwitch2(_ sender: UISwitch) {
         switch2.isOn = sender.isOn
+        congrats.text = info[1]
     }
     
     @IBAction func didSwitch3(_ sender: UISwitch) {
         if switch2.isOn == true && switch2.isOn == true && switch4.isOn == true{
             switch3.isOn = sender.isOn
-
+            congrats.text = info[4]
         }else {
             switch1.reset()
             switch2.reset()
             switch3.reset()
             switch4.reset()
             switch5.reset()
+            congrats.text = info[0]
         }
        
     }
@@ -119,12 +137,14 @@ class ViewController: UIViewController {
     @IBAction func didSwitch4(_ sender: UISwitch) {
         if switch1.isOn == true && switch2.isOn == true{
             switch4.isOn = sender.isOn
+            congrats.text = info[3]
         }else {
             switch1.reset()
             switch2.reset()
             switch3.reset()
             switch4.reset()
             switch5.reset()
+            congrats.text = info[0]
         }
     }
     
@@ -132,13 +152,14 @@ class ViewController: UIViewController {
        
         if switch2.isOn == true && switch2.isOn == true && switch4.isOn == true && switch3.isOn == true{
             switch5.isOn = sender.isOn
-            congrats.isHidden = false
+            congrats.text = "Congratulations!"
         }else {
             switch1.reset()
             switch2.reset()
             switch3.reset()
             switch4.reset()
             switch5.reset()
+            congrats.text = info[0]
         }
     }
     
