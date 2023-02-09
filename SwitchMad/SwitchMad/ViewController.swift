@@ -21,9 +21,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var switch4: UISwitch!
     @IBOutlet weak var switch5: UISwitch!
     
+    @IBOutlet weak var topLeftImageView: UIImageView!
+    
+    @IBOutlet weak var topRightImageView: UIImageView!
+    
+    @IBOutlet weak var bottomLeftImageView: UIImageView!
+    
+    @IBOutlet weak var bottomRightImageView: UIImageView!
+    
+    
     let headerStackView = UIStackView()
     let switchStackView = UIStackView()
-    
+    let pictureStackView = UIStackView()
     
     let info = ["Information about Kuwait!",
                 "Kuwait is a country in Western Asia.",
@@ -43,14 +52,35 @@ class ViewController: UIViewController {
         congrats.numberOfLines = 0
        // congrats.isHidden = true
         
-       
+        
+       setUpImages()
         style()
         layout()
+    }
+    
+    func setUpImages(){
+        
+        topLeftImageView.image = UIImage(named: "topLeft")
+        topRightImageView.image = UIImage(named: "topRight")
+        bottomLeftImageView.image = UIImage(named: "bottomLeft")
+        bottomRightImageView.image = UIImage(named: "bottomRight")
+        
+        bottomLeftImageView.isHidden = true
+        bottomRightImageView.isHidden = true
+        topLeftImageView.isHidden = true
+        topRightImageView.isHidden = true
+
     }
     
     func style(){
         headerStackView.translatesAutoresizingMaskIntoConstraints = false
         switchStackView.translatesAutoresizingMaskIntoConstraints = false
+        pictureStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        topLeftImageView.translatesAutoresizingMaskIntoConstraints = false
+        bottomLeftImageView.translatesAutoresizingMaskIntoConstraints = false
+        topRightImageView.translatesAutoresizingMaskIntoConstraints = false
+        bottomRightImageView.translatesAutoresizingMaskIntoConstraints = false
         
         congrats.translatesAutoresizingMaskIntoConstraints = false
         
@@ -60,7 +90,9 @@ class ViewController: UIViewController {
         headerStackView.spacing = 20
         switchStackView.spacing = 20
         
+        
         headerStackView.distribution = .fillProportionally
+        pictureStackView.distribution = .fillEqually
        
     }
     
@@ -71,10 +103,14 @@ class ViewController: UIViewController {
         headerStackView.addSubview(Instructions)
         headerStackView.addSubview(congrats)
         
-        
+        pictureStackView.addSubview(topLeftImageView)
+        pictureStackView.addSubview(bottomLeftImageView)
+        pictureStackView.addSubview(topRightImageView)
+        pictureStackView.addSubview(bottomRightImageView)
+
         
         view.addSubview(headerStackView)
-        
+        view.addSubview(pictureStackView)
 
     
         NSLayoutConstraint.activate([
@@ -94,6 +130,17 @@ class ViewController: UIViewController {
             switch3.topAnchor.constraint(equalTo: switch2.bottomAnchor, constant: 2),
             switch4.topAnchor.constraint(equalTo: switch3.bottomAnchor, constant: 2),
             switch5.topAnchor.constraint(equalTo: switch4.bottomAnchor, constant: 2),
+            
+            topRightImageView.leadingAnchor.constraint(equalTo: topLeftImageView.trailingAnchor),
+            bottomRightImageView.leadingAnchor.constraint(equalTo: bottomLeftImageView.trailingAnchor),
+            
+            bottomLeftImageView.topAnchor.constraint(equalTo: topLeftImageView.bottomAnchor),
+            
+            bottomRightImageView.topAnchor.constraint(equalTo: topRightImageView.bottomAnchor),
+            
+            pictureStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            pictureStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            pictureStackView.topAnchor.constraint(equalTo: switch5.bottomAnchor, constant: 1)
 
         ])
         
@@ -104,6 +151,7 @@ class ViewController: UIViewController {
         if switch2.isOn == true{
             switch1.isOn = sender.isOn
             congrats.text = info[2]
+            bottomRightImageView.isHidden = false
         }else {
             switch1.reset()
             switch2.reset()
@@ -111,18 +159,21 @@ class ViewController: UIViewController {
             switch4.reset()
             switch5.reset()
             congrats.text = info[0]
+            topLeftImageView.isHidden = true
         }
     }
     
     @IBAction func didSwitch2(_ sender: UISwitch) {
         switch2.isOn = sender.isOn
         congrats.text = info[1]
+        topLeftImageView.isHidden = false
     }
     
     @IBAction func didSwitch3(_ sender: UISwitch) {
         if switch2.isOn == true && switch2.isOn == true && switch4.isOn == true{
             switch3.isOn = sender.isOn
             congrats.text = info[4]
+            topRightImageView.isHidden = false
         }else {
             switch1.reset()
             switch2.reset()
@@ -130,6 +181,7 @@ class ViewController: UIViewController {
             switch4.reset()
             switch5.reset()
             congrats.text = info[0]
+            bottomLeftImageView.isHidden = true
         }
        
     }
@@ -138,6 +190,7 @@ class ViewController: UIViewController {
         if switch1.isOn == true && switch2.isOn == true{
             switch4.isOn = sender.isOn
             congrats.text = info[3]
+            bottomLeftImageView.isHidden = false
         }else {
             switch1.reset()
             switch2.reset()
@@ -145,6 +198,7 @@ class ViewController: UIViewController {
             switch4.reset()
             switch5.reset()
             congrats.text = info[0]
+            bottomRightImageView.isHidden = true
         }
     }
     

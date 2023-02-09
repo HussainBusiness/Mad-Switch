@@ -17,28 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VI1-dc-pEX">
-                                <rect key="frame" x="172" y="296" width="49" height="31"/>
+                                <rect key="frame" x="171" y="269" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="didSwitch2:" destination="BYZ-38-t0r" eventType="valueChanged" id="cKv-F2-ADV"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lLD-WV-X8p">
-                                <rect key="frame" x="172" y="383" width="49" height="31"/>
+                                <rect key="frame" x="171" y="337" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="didSwitch3:" destination="BYZ-38-t0r" eventType="valueChanged" id="wwE-KQ-tGJ"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4Nr-sP-C7H">
-                                <rect key="frame" x="171" y="478" width="49" height="31"/>
+                                <rect key="frame" x="171" y="407" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="didSwitch4:" destination="BYZ-38-t0r" eventType="valueChanged" id="zsy-Zo-wWy"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9gP-ji-Nd1">
-                                <rect key="frame" x="171" y="573" width="49" height="31"/>
+                                <rect key="frame" x="171" y="471" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="didSwitch5:" destination="BYZ-38-t0r" eventType="valueChanged" id="bLA-E6-pDD"/>
@@ -65,23 +65,43 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nuh-ll-hAV">
+                                <rect key="frame" x="28" y="545" width="150" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="baV-qp-YCy">
+                                <rect key="frame" x="199" y="544" width="143" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pvK-9c-xhA">
+                                <rect key="frame" x="28" y="682" width="150" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEx-vx-MUL">
+                                <rect key="frame" x="199" y="682" width="143" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="Instructions" destination="v5d-kQ-yoe" id="W72-dt-BpA"/>
+                        <outlet property="bottomLeftImageView" destination="pvK-9c-xhA" id="HwQ-D9-XTT"/>
+                        <outlet property="bottomRightImageView" destination="UEx-vx-MUL" id="Mc5-nx-qI5"/>
                         <outlet property="congrats" destination="kpg-d7-gMr" id="ia6-6B-iTO"/>
                         <outlet property="switch1" destination="ydE-8I-rid" id="ujG-XZ-P9Q"/>
                         <outlet property="switch2" destination="VI1-dc-pEX" id="x2B-sN-Rt9"/>
                         <outlet property="switch3" destination="lLD-WV-X8p" id="3gt-aD-MKy"/>
                         <outlet property="switch4" destination="4Nr-sP-C7H" id="2HB-0Y-2Rj"/>
                         <outlet property="switch5" destination="9gP-ji-Nd1" id="Vo7-t1-tpw"/>
+                        <outlet property="topLeftImageView" destination="Nuh-ll-hAV" id="URW-69-jTL"/>
+                        <outlet property="topRightImageView" destination="baV-qp-YCy" id="oYQ-zD-o63"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102" y="4"/>
+            <point key="canvasLocation" x="101.53846153846153" y="3.5545023696682461"/>
         </scene>
     </scenes>
     <resources>
